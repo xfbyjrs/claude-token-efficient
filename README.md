@@ -89,6 +89,12 @@ Same 5 prompts. Run without CLAUDE.md (baseline) then with CLAUDE.md (optimized)
 
 > **Methodology note:** This is a 5-prompt directional indicator (T1-T3, T5 for word reduction; T4 is a format test), not a statistically controlled study. Claude's output length varies naturally between identical prompts. No variance controls or repeated runs were applied. Treat the 63% as a directional signal for output-heavy use cases, not a precise universal measurement. The CLAUDE.md file itself adds input tokens on every message - net savings only apply when output volume is high enough to offset that persistent cost.
 
+### Reproducible token benchmark (2026-06, via `benchmark/`)
+
+The original table above measures word counts on a single run. For real `output_tokens` measured across haiku/sonnet/opus at N=5, see [`benchmark/SUMMARY.md`](benchmark/SUMMARY.md) and [`benchmark/SEMANTIC.md`](benchmark/SEMANTIC.md). Output-token reduction with the current minimal `CLAUDE.md` is ~4% (haiku), ~12% (sonnet), ~7% (opus). The 63% figure is achievable with a stricter rules profile - reproduce with `python3 benchmark/run.py -n 5 --model opus` and read the per-model report.
+
+The semantic eval also confirms baselines on current models already exhibit 0% preamble, sycophancy, "as an AI", and smart quotes - rules targeting those behaviors carry input cost without changing output. Trim accordingly.
+
 ### External benchmark (Issue #1)
 
 An [independent benchmark](https://github.com/adam-s/testing-claude-agent) ran 6 configs across 3 coding challenges (CSV reporter, SQLite window functions, Hono WebSocket counter). All configs passed all tests, so comparison was purely cost-to-green.
