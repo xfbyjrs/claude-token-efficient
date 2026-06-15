@@ -6,14 +6,14 @@
 
 | Prompt | baseline | CLAUDE.md |
 |---|---|---|
-| T1-async | 566 (276w) | 517 (251w) -9% |
-| T2-review | 190 (51w) | 215 (46w) +13% |
-| T3-rest | 301 (173w) | 285 (167w) -5% |
-| T4-prompt | 489 (239w) | 360 (215w) -26% |
-| T5-halluc | 113 (28w) | 97 (22w) -15% |
-| **total tok** | **1659** | **1473** **-11%** |
+| T1-async | 584 (266w) | 573 (274w) -2% |
+| T2-review | 260 (80w) | 213 (70w) -18% |
+| T3-rest | 394 (210w) | 315 (185w) -20% |
+| T4-prompt | 507 (265w) | 324 (205w) -36% |
+| T5-halluc | 112 (29w) | 99 (25w) -11% |
+| **total tok** | **1856** | **1524** **-18%** |
 
-- baseline total cost: $0.2366
-- CLAUDE.md total cost: $0.2363
+- baseline total cost: $0.1609
+- CLAUDE.md total cost: $0.1599
 
 > Directional only: single-session means, output varies run-to-run. Negative % = fewer output tokens than baseline.
